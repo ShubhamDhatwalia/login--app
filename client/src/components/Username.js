@@ -18,7 +18,7 @@ export default function Username() {
                         <img src="" alt="avatar" />
                     </div>
 
-                    <div className="textbox flex flex-col items-center gap-6 ">
+                    <div className="textbox flex flex-col items-center gap-4 ">
                         <input type="text" placeholder='Username'/>
                         <button type='submit'>Let's Go</button>
                     </div>
