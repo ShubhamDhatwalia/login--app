@@ -7,10 +7,10 @@ import { passwordVerify } from "../helper/validate";
 
 import styles from "../styles/Username.module.css";
 
-export default function Paasword() {
+export default function Recovery() {
   const formik = useFormik({
     initialValues: {
-      password: "",
+      otp: "",
     },
     validate: passwordVerify,
     validateOnBlur: false,
@@ -38,9 +38,9 @@ export default function Paasword() {
 
             <div className="textbox flex flex-col items-center gap-6">
               <input
-                {...formik.getFieldProps("password")}
+                {...formik.getFieldProps("otp")}
                 className={styles.textbox}
-                type="number"
+                type="text"
                 placeholder="OTP"
               />
               <button className={styles.btn} type="submit">

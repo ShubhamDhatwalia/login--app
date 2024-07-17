@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import avatar from "../assets/profile.png";
 import { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
-import { usenameValidate } from '../helper/validate';
+import { usernameValidate } from '../helper/validate';
 
 import styles from "../styles/Username.module.css";
 
@@ -13,7 +13,7 @@ export default function Username() {
         initialValues: {
             username: ""
         },
-        validate: usenameValidate,
+        validate: usernameValidate,
         validateOnBlur: false,
         validateOnChange: false,
         onSubmit: async values => {

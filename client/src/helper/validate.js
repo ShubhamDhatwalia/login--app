@@ -2,7 +2,7 @@ import toast from 'react-hot-toast';
 
 // Validate login page username
 
-export async function usenameValidate(values) {
+export async function usernameValidate(values) {
     const errors = usernameVerify({}, values);
     return errors
 }
@@ -30,16 +30,35 @@ export async function passwordVerify(values) {
 
 
 
+//  Validate reset password 
+
+export async function resetPasswordValidate(values) {
+  const errors = passwordValidate({}, values);
+
+  
+      if (!errors.password && values.password !== values.conf_password) {
+        errors.exist = toast.error("Password not matching", { duration: 2000 });
+      }
+  
+  return errors;
+}
+
+
+
 
 //  Verify Password    
 
 function passwordValidate(error = {}, values) {
-    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const specialChars =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~])[A-Za-z\d`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]{8,}$/;
+
 
     if (!values.password) {
       error.password = toast.error("Password Required", { duration: 2000 });
     } else if (values.password.includes(" ")) {
-      error.password = toast.error("Wrong Password", { duration: 2000 });
+      error.password = toast.error("Password cannot contain spaces", {
+        duration: 2000,
+      });
     } else if (values.password.length < 8) {
       error.password = toast.error("Password must be more than 8 character", {
         duration: 2000,
