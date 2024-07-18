@@ -20,6 +20,21 @@ function usernameVerify(error = {}, values) {
 }
 
 
+// email verify 
+
+function emailVerify(error = {}, values) {
+  if (!values.email) {
+    error.email = toast.error("Email Required...!");
+  } else if (values.email.includes(" ")) {
+    error.email = toast.error("email cannot contain spaces!");
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    error.email = toast.error("Invalid email address...!");
+  }
+
+  return error;
+}
+
+
 
 // Validate Password 
 
@@ -42,6 +57,34 @@ export async function resetPasswordValidate(values) {
   
   return errors;
 }
+
+
+//  Validate Registration 
+
+export async function registerValidation(values) {
+  let errors = {};
+
+  // Validate username
+  errors = usernameVerify({}, values);
+  if (Object.keys(errors).length > 0) {
+    return errors; // Return after the first error
+  }
+
+  // Validate email
+  errors = emailVerify({}, values);
+  if (Object.keys(errors).length > 0) {
+    return errors; // Return after the first error
+  }
+
+  // Validate password
+  errors = passwordValidate({}, values);
+  if (Object.keys(errors).length > 0) {
+    return errors; // Return after the first error
+  }
+
+  return {}; // No errors
+}
+
 
 
 

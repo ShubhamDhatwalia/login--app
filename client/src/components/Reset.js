@@ -27,10 +27,8 @@ export default function Reset() {
       <div className="flex justify-center mx-0 items-center h-screen">
         <div className={styles.glass}>
           <div className="title  flex flex-col items-center">
-            <h4 className="text-5xl font-bold">Reset Password</h4>
-            <p className="py-4 pt-8 text-l w-3/3 text-center text-gray-500">
-              Enter new password.
-            </p>
+            <h4 className="text-3xl pb-7 font-bold">Enter new password</h4>
+            
           </div>
 
           <form className="py-1" onSubmit={formik.handleSubmit}>
@@ -51,7 +49,6 @@ export default function Reset() {
                 Reset
               </button>
             </div>
-
           </form>
         </div>
       </div>

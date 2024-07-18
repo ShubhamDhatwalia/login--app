@@ -1,33 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import avatar from "../assets/profile.png";
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
-import { passwordVerify, usernameValidate } from "../helper/validate";
-
+import { registerValidation} from "../helper/validate";
+import convertToBase64 from "../helper/convert";
 import styles from "../styles/Username.module.css";
 
-export default function Paasword() {
+export default function Register() {
+
+
+  const [file, setFile] = useState();
+
   const formik = useFormik({
     initialValues: {
       username: "",
       email: "",
       password: "",
     },
-    validate: (values) => {
-      const errors = usernameValidate(values);
-      if (Object.keys(errors).length === 0) {
-        // Only validate password if no errors in username
-        Object.assign(errors, passwordVerify(values));
-      }
-      return errors;
-    },
+    validate: registerValidation,
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
+      values = await Object.assign(values, {profile: file || ''})
       console.log(values);
     },
   });
+
+
+  //   Formik does not support file upload so we neeed to handle this 
+
+  const onUpload = async (e) => {
+    const base64 = await convertToBase64(e.target.files[0]);
+    setFile(base64);
+  }
+
 
   return (
     <div className="container mx-auto">
@@ -44,12 +51,12 @@ export default function Paasword() {
           <form className="py-1" onSubmit={formik.handleSubmit}>
             <div className="profile flex justify-center py-4">
               <label htmlFor="profile">
-                <img src={avatar} className={styles.profile_img} alt="avatar" />
+                <img src={file || avatar} className={styles.profile_img} alt="avatar" />
               </label>
-              <input type="file" id="profile" name="profile" />
+              <input type="file" id="profile" name="profile" onChange={onUpload}/>
             </div>
 
-            <div className="textbox flex flex-col items-center gap-6">
+            <div className="textbox flex flex-col items-center gap-2">
               <input
                 {...formik.getFieldProps("username")}
                 className={styles.textbox}
