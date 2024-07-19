@@ -27,7 +27,7 @@ export default function Paasword() {
       <div className="flex justify-center mx-0 items-center h-screen">
         <div className={styles.glass}>
           <div className="title  flex flex-col items-center">
-           
+            
             <span className="py-4 text-l w-2/3 text-center text-gray-500">
               Explore More by connecting with us.
             </span>
