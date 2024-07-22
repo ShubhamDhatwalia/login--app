@@ -45,7 +45,7 @@ export default function Register() {
           </div>
 
           <form className="py-1" onSubmit={formik.handleSubmit}>
-            <div className="profile flex justify-center py-4">
+            <div className="profile flex justify-center py-4 ">
               <label htmlFor="profile">
                 <img
                   src={file || avatar}
@@ -62,7 +62,7 @@ export default function Register() {
             </div>
 
             <div className="textbox flex flex-col items-center gap-2">
-              <div className="name flex w-2/3 gap-3">
+              <div className="name flex w-3/4 gap-3">
                 <input
                   {...formik.getFieldProps("firstName")}
                   type="text"
@@ -79,14 +79,14 @@ export default function Register() {
               </div>
 
 
-              <div className="name flex w-2/3 gap-3">
+              <div className="name flex w-3/4 gap-3">
 
 
                 <input
                 {...formik.getFieldProps("username")}
                 className={styles.textbox}
-                type="username"
-                placeholder="username"
+                type="text"
+                placeholder="Mobile no."
               />
 
               <input
@@ -101,21 +101,21 @@ export default function Register() {
               
 
               <input
-                {...formik.getFieldProps("password")}
+                {...formik.getFieldProps("address")}
                 className={styles.textbox}
-                type="password"
-                placeholder="password"
+                type="text"
+                placeholder="Address"
               />
               <button className={styles.btn} type="submit">
-                Sign Up
+                Update
               </button>
             </div>
 
             <div className="text-center py-4">
               <span className="text-gray-500">
-                already registered{" "}
+                come back later? {" "}
                 <Link className="text-red-500" to="/">
-                  Sign In
+                  Log out
                 </Link>
               </span>
             </div>
