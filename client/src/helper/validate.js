@@ -8,6 +8,18 @@ export async function usernameValidate(values) {
 }
 
 
+
+// Validate profile page
+
+export async function profileValidation(values){
+  const error = emailVerify({}, values);
+  return error;
+}
+
+
+
+
+
 /** VAlidate Username */
 
 function usernameVerify(error = {}, values) {

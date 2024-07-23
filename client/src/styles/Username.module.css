@@ -4,7 +4,7 @@
     box-shadow: 0 4px 30px #4747470b;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    @apply border-4 border-gray-50   rounded-3xl py-2 px-0 ;
+    @apply border-4 border-gray-50   rounded-3xl py-2 px-8 ;
 }
 
 .profile_img{
@@ -13,13 +13,13 @@
 }
 
 .textbox{
-    @apply border-2 px-5 py-2 rounded-xl w-3/4 shadow-sm text-lg;
+    @apply border-2 px-5 py-2 rounded-xl w-[100%] shadow-sm text-lg block;
     @apply focus:outline-indigo-300;
     @apply hover:border-indigo-300;
 }
 
 .btn{
-    @apply border bg-indigo-500 w-3/4 py-2 rounded-lg text-gray-50 text-xl shadow-sm text-center;
+    @apply border bg-indigo-500 w-[100%] py-2 rounded-lg text-gray-50 text-xl shadow-sm text-center;
 }
 
 .btn:hover{

@@ -43,7 +43,7 @@ export default function Register() {
       <div className="flex justify-center mx-0 items-center h-screen">
         <div className={styles.glass}>
           <div className="title  flex flex-col items-center">
-            <span className="py-0 text-2xl w-2/3 text-center text-gray-500">
+            <span className="py-0 text-2xl w-[100%] text-center text-gray-500">
               Happy to join you !
             </span>
           </div>

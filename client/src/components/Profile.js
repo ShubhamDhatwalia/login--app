@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import avatar from "../assets/profile.png";
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
-import { registerValidation } from "../helper/validate";
+import { profileValidation } from "../helper/validate";
 import convertToBase64 from "../helper/convert";
 import styles from "../styles/Username.module.css";
 
@@ -16,7 +16,7 @@ export default function Register() {
       email: "",
       password: "",
     },
-    validate: registerValidation,
+    validate: profileValidation,
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
@@ -39,8 +39,8 @@ export default function Register() {
       <div className="flex justify-center mx-0 items-center h-screen">
         <div className={styles.glass}>
           <div className="title  flex flex-col items-center">
-            <span className="py-0 text-2xl w-2/3 text-center text-gray-500">
-              Happy to join you !
+            <span className="py-0 text-2xl w-[100%] text-center text-gray-500">
+              You can update your profile
             </span>
           </div>
 
@@ -62,7 +62,7 @@ export default function Register() {
             </div>
 
             <div className="textbox flex flex-col items-center gap-2">
-              <div className="name flex w-3/4 gap-3">
+              <div className="name flex w-[100%] gap-3">
                 <input
                   {...formik.getFieldProps("firstName")}
                   type="text"
@@ -79,7 +79,7 @@ export default function Register() {
               </div>
 
 
-              <div className="name flex w-3/4 gap-3">
+              <div className="name flex w-[100%] gap-3">
 
 
                 <input

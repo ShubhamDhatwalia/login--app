@@ -31,7 +31,7 @@ export default function Username() {
         <div className={styles.glass}>
           <div className="title  flex flex-col items-center">
             
-            <span className="py-3 text-xxl w-2/3 text-center text-gray-500">
+            <span className="py-3 text-xxl font-medium w-[100%] text-center text-gray-500">
               Explore More by connecting with us.
             </span>
           </div>

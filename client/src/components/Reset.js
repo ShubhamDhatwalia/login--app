@@ -27,7 +27,7 @@ export default function Reset() {
       <div className="flex justify-center mx-0 items-center h-screen">
         <div className={styles.glass}>
           <div className="title  flex flex-col items-center">
-            <h4 className="text-3xl pb-7 font-bold">Enter new password</h4>
+            <h4 className="text-xl pb-7 font-medium text-gray-500">Enter new password</h4>
             
           </div>
 
