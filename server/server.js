@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import  connect  from './database/connection.js';
 const app = express();
 
 
@@ -20,8 +21,22 @@ app.get('/', (req, res)=>{
 })
 
 
+
+//  Start Server only when valid connection is created
+
+connect().then(() => {
+    try {
+        app.listen(8000, () => {
+            console.log("Server created");
+        });
+    } catch (error) {
+        console.log("Cannot connect to the server");
+    }
+}).catch(error => {
+    console.log("Invalid Database connection");
+})
+
+
+
 // Start server ------
 
-app.listen(8000, ()=>{
-    console.log("Server created");
-})
