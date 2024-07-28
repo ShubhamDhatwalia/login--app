@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import  connect  from './database/connection.js';
+import router from "./Router/route.js";
 const app = express();
 
 
@@ -21,6 +22,11 @@ app.get('/', (req, res)=>{
 })
 
 
+// ----------Api routes ----------------
+
+app.use('/api', router);
+
+
 
 //  Start Server only when valid connection is created
 
@@ -38,5 +44,4 @@ connect().then(() => {
 
 
 
-// Start server ------
 
