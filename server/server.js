@@ -30,17 +30,19 @@ app.use('/api', router);
 
 //  Start Server only when valid connection is created
 
-connect().then(() => {
+connect("mongodb://localhost:27017/login")
+  .then(() => {
     try {
-        app.listen(8000, () => {
-            console.log("Server created");
-        });
+      app.listen(8080, () => {
+        console.log("Server created");
+      });
     } catch (error) {
-        console.log("Cannot connect to the server");
+      console.log("Cannot connect to the server");
     }
-}).catch(error => {
+  })
+  .catch((error) => {
     console.log("Invalid Database connection");
-})
+  });
 
 
 
