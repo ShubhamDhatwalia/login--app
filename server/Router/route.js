@@ -1,6 +1,6 @@
 import {Router} from "express";
 const router = Router();
-
+import Auth from '../middleware/auth.js'
 
 //  import all controllers
 import * as controller from '../controller/appcontroller.js';
@@ -20,11 +20,11 @@ router.post('/login', controller.login);      //  login in app
 
 router.get('/user/:username', controller.getUser);        // user with username
 router.get('/generateOTP', controller.generateOTP);       // generate random OTP
-router.get('/verifyOTP', controller.verifyOTP);          // verify OTP
+router.get('/verifyOTP', controller.verifyUser, controller.verifyOTP);          // verify OTP
 router.get('/createResetSession', controller.createResetSession);             // reset  all variables
 
 // -----------------  Put Methods ------------
-router.put('/updateuser',controller.updateUser);        // is use to update user profile
+router.put('/updateuser',Auth, controller.updateUser);        // is use to update user profile
 router.put('/resetPassword',controller.resetPassword);         //  use to reset password
 
 
